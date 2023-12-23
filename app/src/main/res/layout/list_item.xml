@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="movies"
+            type="com.mycode.mymovies.modell.Movies" />
+    </data>
+
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/cvMovie"
+        android:layout_margin="5dp"
+        android:elevation="3dp"
+        app:cardCornerRadius="5dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                bind:posterPath="@{movies.posterPath}"
+                android:id="@+id/ivMovie"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="fitXY"
+                 />
+
+            <TextView
+                android:text="@{movies.title}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ivMovie"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/black"
+                android:background="#fee"
+                android:textSize="16sp"
+                android:id="@+id/tvTitle" />
+            <TextView
+                android:text="@{Double.toString(movies.voteAverage)}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tvTitle"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:background="#fee"
+                android:paddingTop="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:id="@+id/tvRating" />
+
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>
+</layout>
